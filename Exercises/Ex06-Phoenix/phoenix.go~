@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+	"os/exec"
+	"os"
+	"net"
+	"strconv"
+	"time"
+)
+
+func broadcast(msg string) {
+	LocalAddr, err := net.ResolveUDPAddr("udp", "20009")
+ 
+	RemoteEP := net.UDPAddr{IP: "127.0.0.1", Port: 20009}
+ 
+	conn, err := net.DialUDP("udp", LocalAddr, &RemoteEP)
+
+	
+}
+
+func main() {
+	master := false
+
+	
+}

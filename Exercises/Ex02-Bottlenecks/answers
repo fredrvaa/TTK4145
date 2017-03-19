@@ -1,0 +1,7 @@
+Atomic operation - irreducibility and indivisibility operation, "instantaneously"
+
+Semaphore - variable (integer flag) used to control access to a common resource by multiple processes in a concurrent system
+
+Mutex - binary semaphore (0 or 1)
+
+Critical section - part of program that cannot be executed by more than one process

@@ -1,0 +1,39 @@
+# Python 3.3.3 and 2.7.6
+# python helloworld_python.py
+
+from threading import Thread, Lock
+
+mutex = Lock()
+i = 0
+
+def thread1():
+    global i
+    for j in range(1000023):
+        mutex.acquire()
+	try:
+	    i += 1
+	finally:
+	    mutex.release()
+
+def thread2():
+    global i
+    for j in range(1000000):
+	mutex.acquire()
+	try:
+	    i -= 1
+	finally:
+	    mutex.release()
+
+
+def main():
+    someThread1 = Thread(target = thread1, args = (),)
+    someThread2 = Thread(target = thread2, args = (),)
+    someThread1.start()
+    someThread2.start()
+    
+    someThread1.join()
+    someThread2.join()
+    print(i)
+
+
+main()

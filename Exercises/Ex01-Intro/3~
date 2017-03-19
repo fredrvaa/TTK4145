@@ -1,0 +1,27 @@
+1.
+Concurrency - the property of program, algorithm, or problem decomposition into order-independent or partially-ordered units.
+
+Parallelism - many calculations or the execution of processes are carried out simultaneously
+
+Difference - Parallelism implementation of concurrency. Concurrency = overlapping time periods, Parallelism = simultaneously
+
+2.
+Increase of parallelism / faster computation.
+
+3.
+Reduce waiting, improve throughput, resource utizliation, average reponse time
+
+4.
+Harder
+
+5.
+Processes - Executing instance of an application. OS-managed, own address space
+Threads - OS-managed, same address space as parent and all its other threads.
+Green Threads - thread that is not OS-managed
+Coroutines - Like thread, but not OS-managed and not concurrent (no co-operatively multitasking)
+
+6.
+Thread
+
+7.
+GIL - mutex that prevents multiple native threads from executing Python bytecodes at once

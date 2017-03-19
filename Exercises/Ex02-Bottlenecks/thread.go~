@@ -1,0 +1,42 @@
+// Go 1.2
+// go run helloworld_go.go
+
+package main
+
+import (
+    . "fmt"
+    "runtime"
+)
+
+func someGoroutine1(c chan int, d chan bool) {
+    for j := 0; j < 1000000; j++ {
+	i := <- c
+	i++
+    	c <- i;
+    }
+    d <- true
+}
+
+func someGoroutine2(c chan int, d chan bool) {
+    for j := 0; j < 1000000; j++ {
+	i := <- c
+	i--
+    	c <- i;
+    }
+    d <- true
+}
+
+func main() {
+    runtime.GOMAXPROCS(runtime.NumCPU())
+    c := make(chan int, 1)
+    d := make(chan bool, 2)
+    go someGoroutine1(c, d) 
+    go someGoroutine2(c, d) 
+    c <- 0
+
+    // Wait till both done
+    <- d 
+    <- d
+
+    Println(<- c)
+}

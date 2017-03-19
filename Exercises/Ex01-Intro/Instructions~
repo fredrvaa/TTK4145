@@ -1,0 +1,8 @@
+C: 
+gcc -pthread helloworld_c.c -o helloworld
+./helloworld
+
+Python:
+python helloworld_python.py
+
+
